@@ -1,0 +1,31 @@
+  (familia extra cargada: cambio_regimen desde extra_regimen.py)
+  (familia extra cargada: supertrend desde extra_tecnicos.py)
+  (familia extra cargada: keltner_ruptura desde extra_tecnicos.py)
+  (familia extra cargada: ichimoku_cierre desde extra_tecnicos.py)
+  (familia extra cargada: kama_tendencia desde extra_tecnicos.py)
+  (familia extra cargada: squeeze_ruptura desde extra_tecnicos.py)
+Datos: base_okx.pkl.gz
+SPA / REALITY CHECK 4h: 1500 configuraciones, 7071 barras de busqueda
+  Busqueda (todas): p White = 0.083 | p SPA Hansen = 0.272
+  Reserva (mejor de cada familia, 18): p White = 0.421 | p SPA = 0.326
+  p < 0.05 significaria que al menos una supera a 'no operar' tras corregir por la busqueda.
+
+familia | sharpe_res_anual | anual_res
+  macd_tendencia         +0.02 | +0.6%
+  xs_momentum            -0.43 | -18.5%
+  cambio_regimen         +0.86 | +14.9%
+  ts_momentum            -0.22 | -6.4%
+  keltner_ruptura        +0.21 | +5.1%
+  supertrend             +0.40 | +11.2%
+  squeeze_ruptura        +1.39 | +23.4%
+  doble_ema_tendencia    +0.27 | +6.5%
+  ichimoku_cierre        +0.25 | +6.7%
+  donchian               -0.41 | -8.1%
+  kama_tendencia         +0.30 | +8.2%
+  ema_precio_umbral      +0.15 | +4.7%
+  rsi_reversion          +0.00 | +0.0%
+  baja_volatilidad       +0.22 | +7.0%
+  xs_reversion           -0.76 | -29.2%
+  rsi_tendencia          -0.56 | -9.9%
+  bollinger_reversion    -0.06 | -0.1%
+  funding_contrario      +0.52 | +10.9%

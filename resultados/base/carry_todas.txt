@@ -1,0 +1,21 @@
+Funding medio anualizado por moneda (todo el periodo, top 10):
+CASHCAT     +38.1%
+XMR         +32.5%
+ZRO         +17.9%
+FARTCOIN    +15.6%
+VVV         +13.8%
+NEAR        +13.1%
+XPL         +11.6%
+UNI         +11.2%
+PUMP        +11.0%
+LIT         +11.0%
+
+Top 5 configuraciones por rentabilidad en la BUSQUEDA (y lo que dieron en la reserva):
+ dias  umbral_h  mantener  anual_busq  anual_res  sharpe_res   expo
+   14     3e-05         1      0.1969    0.06543       13.48 0.7696
+   14     3e-05        14      0.1748    0.06324       21.02 0.7392
+    7     3e-05        14      0.1744    0.04687       10.51 0.7392
+    7     3e-05         1      0.1655    0.02189           3 0.8032
+   14     3e-05         7      0.1612    0.06963       17.04 0.7648
+
+Elegida en la busqueda -> reserva: +6.5% anual sobre el capital total, Sharpe 13.5. Mediana de las 27 en la reserva: +5.5%

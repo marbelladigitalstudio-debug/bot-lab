@@ -1,0 +1,21 @@
+== SOLO MONEDAS GRANDES (con contado liquido) ==
+Funding medio anualizado por moneda (todo el periodo, top 10):
+LINK    +10.1%
+HYPE    +10.0%
+DOGE     +8.7%
+BNB      +7.8%
+SUI      +7.3%
+ETH      +6.8%
+BTC      +6.7%
+XRP      +5.4%
+SOL      +4.6%
+
+Top 5 configuraciones por rentabilidad en la BUSQUEDA (y lo que dieron en la reserva):
+ dias  umbral_h  mantener  anual_busq  anual_res  sharpe_res   expo
+   14         0        14     0.02888    0.04686       185.5 0.9328
+   14         0         7     0.02833    0.04686       185.5 0.9328
+    3         0        14     0.02832    0.04686       185.5 0.9328
+    7         0        14     0.02804    0.04686       185.5 0.9328
+    7         0         7      0.0255    0.04686       185.5 0.9664
+
+Elegida en la busqueda -> reserva: +4.7% anual sobre el capital total, Sharpe 185.5. Mediana de las 27 en la reserva: +0.8%

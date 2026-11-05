@@ -1,0 +1,20 @@
+Datos: base_okx.pkl.gz
+== SOLO MONEDAS GRANDES (con contado liquido) ==
+Funding medio anualizado por moneda (todo el periodo, top 10):
+DOGE    +0.4%
+BTC     +0.3%
+LINK    +0.3%
+XRP     +0.3%
+ADA     +0.3%
+ETH     +0.3%
+SOL     +0.2%
+
+Top 5 configuraciones por rentabilidad en la BUSQUEDA (y lo que dieron en la reserva):
+ dias  umbral_h  mantener  anual_busq  anual_res  sharpe_res    expo
+    3         0         1           0  -0.001393     -0.8408 0.05284
+    3         0         7           0   0.002735       2.412 0.05058
+    3         0        14           0   0.003839       4.771 0.05058
+    3     1e-05         1           0   -0.01349      -3.785 0.02684
+    3     1e-05         7           0   -0.00225     -0.9543 0.02289
+
+Elegida en la busqueda -> reserva: -0.1% anual sobre el capital total, Sharpe -0.8. Mediana de las 27 en la reserva: +0.0%

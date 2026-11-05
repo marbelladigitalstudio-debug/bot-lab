@@ -1,0 +1,22 @@
+Datos: base_binancevision.pkl.gz
+Funding medio anualizado por moneda (todo el periodo, top 10):
+LINK    +8.0%
+LTC     +7.2%
+DOGE    +7.1%
+AAVE    +6.8%
+BTC     +6.6%
+ARB     +6.3%
+OP      +6.2%
+ETH     +5.9%
+XRP     +5.4%
+ADA     +5.3%
+
+Top 5 configuraciones por rentabilidad en la BUSQUEDA (y lo que dieron en la reserva):
+ dias  umbral_h  mantener  anual_busq  anual_res  sharpe_res   expo
+   14         0        14     0.02444   0.007383       3.205 0.9921
+   14         0         7     0.02341   0.005768       2.639 0.9921
+    7         0        14      0.0234   0.005133       1.874 0.9841
+   14         0         1     0.02183  -0.005688      -2.068 0.9921
+    3         0        14      0.0212   0.003003       1.049 0.9921
+
+Elegida en la busqueda -> reserva: +0.7% anual sobre el capital total, Sharpe 3.2. Mediana de las 27 en la reserva: -0.0%

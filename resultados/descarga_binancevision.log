@@ -1,0 +1,23 @@
+/home/runner/work/bot-lab/bot-lab/lab/herramientas/descarga_binance_vision.py:64: Pandas4Warning: Timestamp.utcnow is deprecated and will be removed in a future version. Use Timestamp.now('UTC') instead.
+  meses = [p.strftime("%Y-%m") for p in pd.period_range(a.desde, pd.Timestamp.utcnow().strftime("%Y-%m"), freq="M")][:-1]
+  [1/20] BTCUSDT
+  [2/20] ETHUSDT
+  [3/20] SOLUSDT
+  [4/20] XRPUSDT
+  [5/20] DOGEUSDT
+  [6/20] BNBUSDT
+  [7/20] ADAUSDT
+  [8/20] LINKUSDT
+  [9/20] AVAXUSDT
+  [10/20] LTCUSDT
+  [11/20] DOTUSDT
+  [12/20] TRXUSDT
+  [13/20] BCHUSDT
+  [14/20] NEARUSDT
+  [15/20] SUIUSDT
+  [16/20] APTUSDT
+  [17/20] ARBUSDT
+  [18/20] OPUSDT
+  [19/20] INJUSDT
+  [20/20] AAVEUSDT
+Guardado lab/datos/base_binancevision.pkl.gz (1009501 velas). Para usarlo: LAB_BASE=base_binancevision.pkl.gz

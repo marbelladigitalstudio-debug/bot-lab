@@ -1,0 +1,32 @@
+META-VALIDACION 1h: 1542 configuraciones, 5 bloques de ~37 dias
+
+bloque A -> B | rho (rangos) | B: mediana todas | B: top 1 % de A | B: top 10 % de A | B: mejor de A
+   1 -> 2      | -0.11        | -0.84            | -0.49            | -0.74             | -0.31
+   2 -> 3      | -0.30        | +1.11            | +0.21            | +0.23             | -0.58
+   3 -> 4      | +0.26        | +0.46            | +0.29            | +0.67             | +0.40
+   4 -> 5      | -0.03        | -1.62            | -1.01            | -1.27             | -1.17
+
+rho medio -0.04  (las cifras de B son Sharpe del bloque sin anualizar x raiz(n))
+
+Por familia (rho medio entre bloques consecutivos):
+   baja_volatilidad       +0.00   (67 configs)
+   bollinger_reversion    -0.07   (100 configs)
+   cambio_regimen         +0.14   (120 configs)
+   doble_ema_tendencia    +0.02   (89 configs)
+   donchian               +0.00   (74 configs)
+   ema_precio_umbral      +0.22   (76 configs)
+   funding_contrario      -0.13   (93 configs)
+   ichimoku_cierre        -0.03   (93 configs)
+   kama_tendencia         +0.19   (95 configs)
+   keltner_ruptura        +0.03   (58 configs)
+   macd_tendencia         +0.34   (62 configs)
+   rsi_reversion          +0.02   (109 configs)
+   rsi_tendencia          -0.17   (100 configs)
+   squeeze_ruptura        +0.24   (31 configs)
+   supertrend             +0.04   (80 configs)
+   ts_momentum            -0.08   (96 configs)
+   xs_momentum            +0.07   (97 configs)
+   xs_reversion           -0.07   (102 configs)
+
+Lectura: rho cerca de 0 = el ranking del pasado no predice el siguiente bloque.
+Positivo y estable en todos los pares = hay algo de persistencia que vale la pena seguir.

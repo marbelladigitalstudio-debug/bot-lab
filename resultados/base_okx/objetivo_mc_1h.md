@@ -1,0 +1,90 @@
+# Traducción del objetivo
+
+| Capital | Objetivo | Rentab. en 5 meses | Equivale anual | Sharpe mínimo (Kelly, 50 % de lograrlo) | Apalanc. Kelly si vol 60 %/año |
+|---|---|---|---|---|---|
+| 1.000 € | +2.000 € | +200% | +1297% | 2.3 | x3.8 |
+| 2.000 € | +2.000 € | +100% | +428% | 1.8 | x3.0 |
+| 5.000 € | +2.000 € | +40% | +124% | 1.3 | x2.1 |
+| 10.000 € | +2.000 € | +20% | +55% | 0.9 | x1.6 |
+| 1.000 € | +5.000 € | +500% | +7272% | 2.9 | x4.9 |
+| 2.000 € | +5.000 € | +250% | +1922% | 2.5 | x4.1 |
+| 5.000 € | +5.000 € | +100% | +428% | 1.8 | x3.0 |
+| 10.000 € | +5.000 € | +50% | +165% | 1.4 | x2.3 |
+
+## Monte Carlo 1h (bootstrap estacionario, bloque medio 1 día, 4000 caminos, 3650 barras = 5 meses)
+Reserva: 12741 barras (23/05/25 → 05/11/26). `mejor_busqueda` = xs_momentum.
+
+- **cartera_familias**: Sharpe reserva -0.39, rentab. anualizada -7%, vol anual 18%
+- **mejor_busqueda**: Sharpe reserva -0.25, rentab. anualizada -10%, vol anual 41%
+- **mercado**: Sharpe reserva -0.27, rentab. anualizada -16%, vol anual 58%
+
+### Objetivo +2.000 € en 5 meses
+
+| Candidata | Ventaja | Apal. | 1.000 €: P(obj) / P(−50 %) | 2.000 €: P(obj) / P(−50 %) | 5.000 €: P(obj) / P(−50 %) | 10.000 €: P(obj) / P(−50 %) |
+|---|---|---|---|---|---|---|
+| cartera_familias | la de la reserva | x1 | 0% / 0% | 0% / 0% | 0% / 0% | 5% / 0% |
+| cartera_familias | la de la reserva | x2 | 0% / 1% | 0% / 1% | 6% / 1% | 15% / 1% |
+| cartera_familias | la de la reserva | x3 | 0% / 10% | 2% / 10% | 10% / 10% | 19% / 10% |
+| cartera_familias | la de la reserva | x5 | 2% / 41% | 6% / 41% | 15% / 41% | 20% / 41% |
+| cartera_familias | la de la reserva | x10 | 5% / 81% | 9% / 81% | 15% / 81% | 18% / 81% |
+| cartera_familias | cero (SPA) | x1 | 0% / 0% | 0% / 0% | 1% / 0% | 7% / 0% |
+| cartera_familias | cero (SPA) | x2 | 0% / 0% | 1% / 0% | 8% / 0% | 19% / 0% |
+| cartera_familias | cero (SPA) | x3 | 0% / 6% | 3% / 6% | 15% / 6% | 24% / 6% |
+| cartera_familias | cero (SPA) | x5 | 3% / 32% | 9% / 32% | 20% / 32% | 27% / 32% |
+| cartera_familias | cero (SPA) | x10 | 8% / 74% | 13% / 74% | 20% / 74% | 23% / 74% |
+| mejor_busqueda | la de la reserva | x1 | 0% / 2% | 0% / 2% | 7% / 2% | 17% / 2% |
+| mejor_busqueda | la de la reserva | x2 | 1% / 31% | 5% / 31% | 15% / 31% | 22% / 31% |
+| mejor_busqueda | la de la reserva | x3 | 3% / 58% | 8% / 58% | 17% / 58% | 21% / 58% |
+| mejor_busqueda | la de la reserva | x5 | 6% / 83% | 9% / 83% | 15% / 83% | 17% / 83% |
+| mejor_busqueda | la de la reserva | x10 | 3% / 97% | 4% / 97% | 5% / 97% | 6% / 97% |
+| mejor_busqueda | cero (SPA) | x1 | 0% / 1% | 1% / 1% | 9% / 1% | 20% / 1% |
+| mejor_busqueda | cero (SPA) | x2 | 1% / 26% | 7% / 26% | 19% / 26% | 26% / 26% |
+| mejor_busqueda | cero (SPA) | x3 | 4% / 51% | 11% / 51% | 20% / 51% | 25% / 51% |
+| mejor_busqueda | cero (SPA) | x5 | 7% / 78% | 12% / 78% | 18% / 78% | 20% / 78% |
+| mejor_busqueda | cero (SPA) | x10 | 4% / 97% | 6% / 97% | 7% / 97% | 8% / 97% |
+| mercado | la de la reserva | x1 | 0% / 11% | 1% / 11% | 10% / 11% | 20% / 11% |
+| mercado | la de la reserva | x2 | 2% / 54% | 7% / 54% | 16% / 54% | 21% / 54% |
+| mercado | la de la reserva | x3 | 4% / 76% | 9% / 76% | 15% / 76% | 19% / 76% |
+| mercado | la de la reserva | x5 | 5% / 92% | 7% / 92% | 10% / 92% | 12% / 92% |
+| mercado | la de la reserva | x10 | 1% / 100% | 1% / 100% | 2% / 100% | 2% / 100% |
+| mercado | cero (SPA) | x1 | 0% / 9% | 2% / 9% | 14% / 9% | 24% / 9% |
+| mercado | cero (SPA) | x2 | 3% / 48% | 10% / 48% | 20% / 48% | 26% / 48% |
+| mercado | cero (SPA) | x3 | 7% / 72% | 12% / 72% | 20% / 72% | 23% / 72% |
+| mercado | cero (SPA) | x5 | 7% / 90% | 10% / 90% | 14% / 90% | 15% / 90% |
+| mercado | cero (SPA) | x10 | 2% / 99% | 2% / 99% | 2% / 99% | 3% / 99% |
+
+### Objetivo +5.000 € en 5 meses
+
+| Candidata | Ventaja | Apal. | 1.000 €: P(obj) / P(−50 %) | 2.000 €: P(obj) / P(−50 %) | 5.000 €: P(obj) / P(−50 %) | 10.000 €: P(obj) / P(−50 %) |
+|---|---|---|---|---|---|---|
+| cartera_familias | la de la reserva | x1 | 0% / 0% | 0% / 0% | 0% / 0% | 0% / 0% |
+| cartera_familias | la de la reserva | x2 | 0% / 1% | 0% / 1% | 0% / 1% | 3% / 1% |
+| cartera_familias | la de la reserva | x3 | 0% / 10% | 0% / 10% | 2% / 10% | 8% / 10% |
+| cartera_familias | la de la reserva | x5 | 0% / 41% | 1% / 41% | 6% / 41% | 13% / 41% |
+| cartera_familias | la de la reserva | x10 | 2% / 81% | 4% / 81% | 9% / 81% | 13% / 81% |
+| cartera_familias | cero (SPA) | x1 | 0% / 0% | 0% / 0% | 0% / 0% | 0% / 0% |
+| cartera_familias | cero (SPA) | x2 | 0% / 0% | 0% / 0% | 1% / 0% | 5% / 0% |
+| cartera_familias | cero (SPA) | x3 | 0% / 6% | 0% / 6% | 3% / 6% | 11% / 6% |
+| cartera_familias | cero (SPA) | x5 | 0% / 32% | 2% / 32% | 9% / 32% | 18% / 32% |
+| cartera_familias | cero (SPA) | x10 | 3% / 74% | 6% / 74% | 13% / 74% | 19% / 74% |
+| mejor_busqueda | la de la reserva | x1 | 0% / 2% | 0% / 2% | 0% / 2% | 4% / 2% |
+| mejor_busqueda | la de la reserva | x2 | 0% / 31% | 1% / 31% | 5% / 31% | 12% / 31% |
+| mejor_busqueda | la de la reserva | x3 | 0% / 58% | 2% / 58% | 8% / 58% | 15% / 58% |
+| mejor_busqueda | la de la reserva | x5 | 2% / 83% | 4% / 83% | 9% / 83% | 13% / 83% |
+| mejor_busqueda | la de la reserva | x10 | 2% / 97% | 2% / 97% | 4% / 97% | 5% / 97% |
+| mejor_busqueda | cero (SPA) | x1 | 0% / 1% | 0% / 1% | 1% / 1% | 6% / 1% |
+| mejor_busqueda | cero (SPA) | x2 | 0% / 26% | 1% / 26% | 7% / 26% | 16% / 26% |
+| mejor_busqueda | cero (SPA) | x3 | 1% / 51% | 2% / 51% | 11% / 51% | 18% / 51% |
+| mejor_busqueda | cero (SPA) | x5 | 2% / 78% | 6% / 78% | 12% / 78% | 17% / 78% |
+| mejor_busqueda | cero (SPA) | x10 | 2% / 97% | 4% / 97% | 6% / 97% | 7% / 97% |
+| mercado | la de la reserva | x1 | 0% / 11% | 0% / 11% | 1% / 11% | 8% / 11% |
+| mercado | la de la reserva | x2 | 0% / 54% | 1% / 54% | 7% / 54% | 14% / 54% |
+| mercado | la de la reserva | x3 | 1% / 76% | 3% / 76% | 9% / 76% | 14% / 76% |
+| mercado | la de la reserva | x5 | 2% / 92% | 4% / 92% | 7% / 92% | 10% / 92% |
+| mercado | la de la reserva | x10 | 1% / 100% | 1% / 100% | 1% / 100% | 2% / 100% |
+| mercado | cero (SPA) | x1 | 0% / 9% | 0% / 9% | 2% / 9% | 10% / 9% |
+| mercado | cero (SPA) | x2 | 0% / 48% | 2% / 48% | 10% / 48% | 18% / 48% |
+| mercado | cero (SPA) | x3 | 1% / 72% | 5% / 72% | 12% / 72% | 18% / 72% |
+| mercado | cero (SPA) | x5 | 3% / 90% | 6% / 90% | 10% / 90% | 13% / 90% |
+| mercado | cero (SPA) | x10 | 1% / 99% | 1% / 99% | 2% / 99% | 2% / 99% |
+

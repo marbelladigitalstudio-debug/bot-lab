@@ -1,0 +1,22 @@
+Datos: base_binancevision.pkl.gz
+== SOLO MONEDAS GRANDES (con contado liquido) ==
+Funding medio anualizado por moneda (todo el periodo, top 10):
+LINK    +8.0%
+DOGE    +7.1%
+BTC     +6.6%
+ETH     +5.9%
+XRP     +5.4%
+ADA     +5.3%
+SUI     +3.9%
+SOL     -4.8%
+BNB     -5.0%
+
+Top 5 configuraciones por rentabilidad en la BUSQUEDA (y lo que dieron en la reserva):
+ dias  umbral_h  mantener  anual_busq  anual_res  sharpe_res   expo
+   14         0         1     0.02392   0.006153         2.5 0.9915
+   14         0         7     0.02195    0.01095        4.95 0.9921
+    7         0        14     0.02176    0.01037       4.019 0.9841
+   14         0        14     0.02159    0.01298       5.979 0.9921
+   14     1e-05        14     0.01998  -0.001053     -0.5843  0.381
+
+Elegida en la busqueda -> reserva: +0.6% anual sobre el capital total, Sharpe 2.5. Mediana de las 27 en la reserva: +0.0%

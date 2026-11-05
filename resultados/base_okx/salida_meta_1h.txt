@@ -1,0 +1,45 @@
+/home/runner/work/bot-lab/bot-lab/lab/meta_validacion.py:72: RuntimeWarning: Mean of empty slice
+  lin.append(f"   {fam:22} {np.nanmean(rr):+.2f}   ({len(g)} configs)")
+  (familia extra cargada: cambio_regimen desde extra_regimen.py)
+  (familia extra cargada: supertrend desde extra_tecnicos.py)
+  (familia extra cargada: keltner_ruptura desde extra_tecnicos.py)
+  (familia extra cargada: ichimoku_cierre desde extra_tecnicos.py)
+  (familia extra cargada: kama_tendencia desde extra_tecnicos.py)
+  (familia extra cargada: squeeze_ruptura desde extra_tecnicos.py)
+Datos: base_okx.pkl.gz
+Evaluando 1546 configuraciones en 5 bloques...
+   500
+   1000
+   1500
+META-VALIDACION 1h: 1546 configuraciones, 5 bloques de ~342 dias
+
+bloque A -> B | rho (rangos) | B: mediana todas | B: top 1 % de A | B: top 10 % de A | B: mejor de A
+   1 -> 2      | +0.26        | +0.18            | +0.22            | +0.35             | +0.20
+   2 -> 3      | +0.54        | +0.66            | +0.59            | +1.12             | +0.86
+   3 -> 4      | +0.33        | -0.28            | +0.09            | -0.01             | +0.11
+   4 -> 5      | +0.55        | -0.63            | +0.07            | -0.25             | +0.41
+
+rho medio +0.42  (las cifras de B son Sharpe del bloque sin anualizar x raiz(n))
+
+Por familia (rho medio entre bloques consecutivos):
+   baja_volatilidad       +0.09   (69 configs)
+   bollinger_reversion    +0.12   (109 configs)
+   cambio_regimen         +0.77   (123 configs)
+   doble_ema_tendencia    +0.35   (87 configs)
+   donchian               +0.36   (63 configs)
+   ema_precio_umbral      +0.48   (77 configs)
+   funding_contrario      +nan   (91 configs)
+   ichimoku_cierre        +0.35   (94 configs)
+   kama_tendencia         +0.72   (93 configs)
+   keltner_ruptura        +0.37   (62 configs)
+   macd_tendencia         +0.67   (60 configs)
+   rsi_reversion          +0.44   (110 configs)
+   rsi_tendencia          +0.18   (100 configs)
+   squeeze_ruptura        -0.08   (31 configs)
+   supertrend             +0.20   (79 configs)
+   ts_momentum            +0.09   (101 configs)
+   xs_momentum            +0.15   (96 configs)
+   xs_reversion           +0.68   (101 configs)
+
+Lectura: rho cerca de 0 = el ranking del pasado no predice el siguiente bloque.
+Positivo y estable en todos los pares = hay algo de persistencia que vale la pena seguir.

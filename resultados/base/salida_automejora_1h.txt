@@ -1,0 +1,29 @@
+  (familia extra cargada: cambio_regimen desde extra_regimen.py)
+  (familia extra cargada: supertrend desde extra_tecnicos.py)
+  (familia extra cargada: keltner_ruptura desde extra_tecnicos.py)
+  (familia extra cargada: ichimoku_cierre desde extra_tecnicos.py)
+  (familia extra cargada: kama_tendencia desde extra_tecnicos.py)
+  (familia extra cargada: squeeze_ruptura desde extra_tecnicos.py)
+Datos 1h: 5000 barras, 30 monedas, 2026-04-11 03:00 -> 2026-11-05 10:00
+Busqueda: hasta 2026-09-03 23:00 | reserva (nunca vista al elegir): desde 2026-09-03 23:00
+1) Buscando configuraciones...
+   100/1500 pruebas
+   200/1500 pruebas
+   300/1500 pruebas
+   400/1500 pruebas
+   500/1500 pruebas
+   600/1500 pruebas
+   700/1500 pruebas
+   800/1500 pruebas
+   900/1500 pruebas
+   1000/1500 pruebas
+   1100/1500 pruebas
+   1200/1500 pruebas
+   1300/1500 pruebas
+   1400/1500 pruebas
+   1500/1500 pruebas
+   1500 configuraciones nuevas probadas (total historico: 1500)
+2) Probando combinaciones...
+   35 combinaciones nuevas
+3) Pasando filtros...
+Hecho en 48 s. Abre lab\informe_1h.html

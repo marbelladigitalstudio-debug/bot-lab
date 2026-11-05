@@ -1,0 +1,45 @@
+  (familia extra cargada: cambio_regimen desde extra_regimen.py)
+  (familia extra cargada: supertrend desde extra_tecnicos.py)
+  (familia extra cargada: keltner_ruptura desde extra_tecnicos.py)
+  (familia extra cargada: ichimoku_cierre desde extra_tecnicos.py)
+  (familia extra cargada: kama_tendencia desde extra_tecnicos.py)
+  (familia extra cargada: squeeze_ruptura desde extra_tecnicos.py)
+Datos: base_binancevision.pkl.gz
+Datos 4h: 10584 barras, 20 monedas, 2022-01-01 00:00 -> 2026-10-31 20:00
+Busqueda: hasta 2025-05-19 16:00 | reserva (nunca vista al elegir): desde 2025-05-19 16:00
+1) Buscando configuraciones...
+   100/3000 pruebas
+   200/3000 pruebas
+   300/3000 pruebas
+   400/3000 pruebas
+   500/3000 pruebas
+   600/3000 pruebas
+   700/3000 pruebas
+   800/3000 pruebas
+   900/3000 pruebas
+   1000/3000 pruebas
+   1100/3000 pruebas
+   1200/3000 pruebas
+   1300/3000 pruebas
+   1400/3000 pruebas
+   1500/3000 pruebas
+   1600/3000 pruebas
+   1700/3000 pruebas
+   1800/3000 pruebas
+   1900/3000 pruebas
+   2000/3000 pruebas
+   2100/3000 pruebas
+   2200/3000 pruebas
+   2300/3000 pruebas
+   2400/3000 pruebas
+   2500/3000 pruebas
+   2600/3000 pruebas
+   2700/3000 pruebas
+   2800/3000 pruebas
+   2900/3000 pruebas
+   3000/3000 pruebas
+   3000 configuraciones nuevas probadas (total historico: 3000)
+2) Probando combinaciones...
+   35 combinaciones nuevas
+3) Pasando filtros...
+Hecho en 113 s. Abre lab\informe_4h.html

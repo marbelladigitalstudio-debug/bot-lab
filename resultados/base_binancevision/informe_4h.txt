@@ -1,0 +1,47 @@
+LABORATORIO 4h — 05/11/2026 13:04
+Ninguna estrategia supera los filtros. Hoy no hay nada que merezca ni siquiera vigilancia.
+Pruebas acumuladas 3048 (indep. ~219); Sharpe por azar ~1.85; reserva desde 19/05/25; umbral PSR reserva 0.995
+
+familia | sharpe_busq | DSR | estab | PBO | conc | sharpe_res | anual_res | PSR_res | anual_res_x2 | corr | veredicto
+conjunto | 2.10 | 0.68 | nan | 0.52 | 20% | 0.26 | +4.1 % | 0.62 | -1.6 % | +0.32 | DESCARTADA
+    conjunto|xs_momentum|dias=14|filtro_btc=0|mantener=3|modo=ls|q=0.33|universo=grandes;macd_tendencia|filtro_btc=1|lados=largo|macd=(24, 52, 18)|tendencia=0|universo=grandes
+xs_momentum | 1.71 | 0.40 | 0.69 | 0.61 | 23% | 0.16 | +3.0 % | 0.58 | -3.2 % | -0.06 | DESCARTADA
+    xs_momentum|dias=14|filtro_btc=0|mantener=3|modo=ls|q=0.33|universo=grandes
+macd_tendencia | 1.52 | 0.28 | 0.65 | 0.32 | 21% | 0.20 | +5.1 % | 0.60 | -0.1 % | +0.52 | DESCARTADA
+    macd_tendencia|filtro_btc=1|lados=largo|macd=(24, 52, 18)|tendencia=0|universo=grandes
+funding_contrario | 1.47 | 0.24 | 0.76 | 0.9 | 28% | -0.19 | -7.2 % | 0.41 | -25.5 % | +0.57 | DESCARTADA
+    funding_contrario|dias=1|filtro_btc=1|mantener=1|modo=largo|q=0.2|universo=grandes
+keltner_ruptura | 1.45 | 0.23 | 0.89 | 0.45 | 19% | 0.59 | +11.0 % | 0.76 | +8.2 % | +0.42 | DESCARTADA
+    keltner_ruptura|filtro_btc=1|k=2.0|lados=largo|n=20|universo=grandes
+squeeze_ruptura | 1.38 | 0.20 | 0.89 | 0.26 | 21% | 1.35 | +21.2 % | 0.95 | +19.8 % | +0.36 | DESCARTADA
+    squeeze_ruptura|filtro_btc=1|lados=largo|n=50|pct=0.1|universo=grandes
+cambio_regimen | 1.35 | 0.18 | 0.75 | 0.33 | 23% | 0.35 | +4.9 % | 0.66 | +1.4 % | +0.47 | DESCARTADA
+    cambio_regimen|bajo=20|ema=200|filtro_btc=1|global=0|lados=largo|n=100|rsi=7|umbral=0.2|universo=grandes
+ichimoku_cierre | 1.29 | 0.16 | 0.58 | 0.85 | 14% | -0.68 | -8.9 % | 0.20 | -11.8 % | +0.50 | DESCARTADA
+    ichimoku_cierre|filtro_btc=0|k=26|lados=largo|s=104|t=40|universo=todas
+ts_momentum | 1.29 | 0.16 | 0.84 | 0.66 | 22% | -0.01 | -0.2 % | 0.50 | -3.9 % | +0.60 | DESCARTADA
+    ts_momentum|dias=14|filtro_btc=1|lados=largo|mantener=1|universo=grandes|vol=0
+doble_ema_tendencia | 1.26 | 0.15 | 0.95 | 0.87 | 22% | 0.27 | +7.2 % | 0.63 | +2.2 % | +0.56 | DESCARTADA
+    doble_ema_tendencia|filtro_btc=1|lados=largo|lenta=26|rapida=9|tendencia=0|universo=grandes
+supertrend | 1.19 | 0.12 | 0.95 | 0.81 | 26% | 0.53 | +14.7 % | 0.74 | +12.0 % | +0.59 | DESCARTADA
+    supertrend|filtro_btc=1|k=4.0|lados=largo|n=10|universo=grandes
+ema_precio_umbral | 1.18 | 0.12 | 0.93 | 0.79 | 21% | 0.25 | +7.7 % | 0.62 | +3.5 % | +0.61 | DESCARTADA
+    ema_precio_umbral|filtro_btc=1|lados=largo|n=50|u=0.03|universo=grandes
+donchian | 1.16 | 0.12 | 0.95 | 0.79 | 22% | 0.28 | +3.5 % | 0.63 | +2.5 % | +0.43 | DESCARTADA
+    donchian|filtro_btc=0|lados=largo|m=10|n=200|universo=grandes
+kama_tendencia | 1.05 | 0.08 | 0.92 | 0.83 | 23% | 0.38 | +10.4 % | 0.67 | +3.7 % | +0.59 | DESCARTADA
+    kama_tendencia|er_min=0.35|filtro_btc=1|lados=largo|lenta=60|n=10|rapida=5|universo=grandes
+baja_volatilidad | 1.02 | 0.07 | 0.88 | 0.94 | 32% | 0.56 | +13.5 % | 0.75 | +8.7 % | +0.59 | DESCARTADA
+    baja_volatilidad|dias=14|filtro_btc=1|mantener=1|modo=largo|q=0.2|universo=grandes
+rsi_reversion | 0.89 | 0.04 | 0.3 | 0.69 | 29% | 0.98 | +7.0 % | 0.89 | +6.5 % | +0.37 | DESCARTADA
+    rsi_reversion|bajo=10|filtro=0|filtro_btc=0|lados=largo|n=7|sale=50|universo=grandes
+bollinger_reversion | 0.88 | 0.04 | 0.59 | 0.89 | 22% | -0.05 | -0.8 % | 0.48 | -7.6 % | +0.13 | DESCARTADA
+    bollinger_reversion|filtro=400|filtro_btc=1|k=1.5|lados=ambos|n=20|salida=0.5|universo=grandes
+xs_reversion | 0.67 | 0.02 | 0.78 | 0.81 | 30% | -0.38 | -14.8 % | 0.32 | -27.5 % | +0.63 | DESCARTADA
+    xs_reversion|dias=0.5|filtro_btc=1|mantener=2|modo=largo|q=0.33|universo=grandes
+rsi_tendencia | 0.60 | 0.01 | 0.68 | 0.98 | 19% | -0.30 | -5.3 % | 0.36 | -6.8 % | +0.54 | DESCARTADA
+    rsi_tendencia|entrada=35|filtro_btc=0|n=7|salida=15|tendencia=200|universo=grandes
+
+SEGUIMIENTO HACIA DELANTE:
+
+POSICIONES SIMULADAS AHORA:
