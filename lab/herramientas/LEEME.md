@@ -1,5 +1,8 @@
 # Herramientas opcionales
 
+**Lo más fácil: doble clic en `HAZLO_TODO.bat`** (carpeta principal). Instala, baja 4 años de datos, ejecuta todo y abre
+`PEGAR_A_CLAUDE.txt` con el resultado para pegarlo en el chat.
+
 Se ejecutan desde la carpeta `lab/`:
 
 | Comando | Qué hace | Necesita |
