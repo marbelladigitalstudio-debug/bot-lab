@@ -11,16 +11,18 @@ mkdir -p "$RES"
 : > "$RES/RESUMEN.txt"
 
 echo "== Descargas ==" | tee -a "$RES/RESUMEN.txt"
-timeout 150m python datos.py 1h 4h > "$RES/descarga_hyperliquid.log" 2>&1 \
-  && echo "hyperliquid: ok" | tee -a "$RES/RESUMEN.txt" || echo "hyperliquid: FALLO (ver log)" | tee -a "$RES/RESUMEN.txt"
+BASES=""
+ok() { echo "$1: ok" | tee -a "$RES/RESUMEN.txt"; BASES="$BASES $2"; }
+mal() { echo "$1: FALLO" | tee -a "$RES/RESUMEN.txt"; tail -3 "$RES/descarga_$1.log" | sed 's/^/    /' | tee -a "$RES/RESUMEN.txt"; }
+timeout 150m python datos.py 1h 4h > "$RES/descarga_hyperliquid.log" 2>&1 && ok hyperliquid base.pkl.gz || mal hyperliquid
 for ex in binanceusdm bybit okx; do
   timeout 60m python -m herramientas.descarga_ccxt --exchange $ex --desde 2022-01-01 > "$RES/descarga_$ex.log" 2>&1 \
-    && { echo "$ex: ok" | tee -a "$RES/RESUMEN.txt"; break; } || echo "$ex: FALLO (ver log)" | tee -a "$RES/RESUMEN.txt"
+    && { ok $ex base_$ex.pkl.gz; break; } || mal $ex
 done
 timeout 90m python -m herramientas.descarga_binance_vision --desde 2022-01 > "$RES/descarga_binancevision.log" 2>&1 \
-  && echo "binancevision: ok" | tee -a "$RES/RESUMEN.txt" || echo "binancevision: FALLO (ver log)" | tee -a "$RES/RESUMEN.txt"
+  && ok binancevision base_binancevision.pkl.gz || mal binancevision
 
-for base in base.pkl.gz base_binancevision.pkl.gz base_binanceusdm.pkl.gz base_bybit.pkl.gz base_okx.pkl.gz; do
+for base in $BASES; do
   [ -s "datos/$base" ] || continue
   nombre="${base%.pkl.gz}"; dest="$RES/$nombre"; mkdir -p "$dest"
   export LAB_BASE=$base
@@ -44,3 +46,7 @@ for base in base.pkl.gz base_binancevision.pkl.gz base_binanceusdm.pkl.gz base_b
 done
 grep -l Traceback "$RES"/*/salida_*.txt >> "$RES/RESUMEN.txt" 2>/dev/null
 echo "Terminado $(date -u)" >> "$RES/RESUMEN.txt"
+# todo al registro del trabajo, por si la subida falla
+for f in "$RES/RESUMEN.txt" "$RES"/*/informe_4h.txt "$RES"/*/spa_*.txt "$RES"/*/carry_grandes.txt "$RES"/*/objetivo_mc_4h.md; do
+  [ -f "$f" ] && { echo; echo "######## $f"; head -60 "$f"; }
+done

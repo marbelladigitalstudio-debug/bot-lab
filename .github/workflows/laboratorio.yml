@@ -32,11 +32,23 @@ jobs:
         env:
           PRUEBAS: ${{ github.event.inputs.pruebas || '3000' }}
         run: bash lab/ejecutar_nube.sh
+      - name: Guardar resultados como archivo descargable
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultados
+          path: resultados/
+          retention-days: 30
       - name: Subir resultados a la rama
         if: always()
         run: |
           git config user.name "bot-lab-actions"
           git config user.email "actions@users.noreply.github.com"
+          cp -r resultados /tmp/resultados_nuevos
+          git reset -q --hard
+          git clean -qfd -e lab/datos
+          git pull -q origin "${GITHUB_REF_NAME}"
+          rm -rf resultados && cp -r /tmp/resultados_nuevos resultados
           git add -f resultados
-          git commit -m "Resultados del laboratorio con datos reales ($(date -u +%Y-%m-%d))" || exit 0
-          for i in 1 2 3 4; do git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((2**i)); done
+          git commit -q -m "Resultados del laboratorio con datos reales ($(date -u +%Y-%m-%d %H:%M) UTC)" || exit 0
+          for i in 1 2 3 4; do git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((2**i)); git pull -q --rebase origin "${GITHUB_REF_NAME}"; done
