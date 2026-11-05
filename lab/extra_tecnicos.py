@@ -30,8 +30,8 @@ def supertrend(panel, p):
     fs, fi = S.copy(), I.copy()
     for t in range(1, len(a)):
         # bandas finales: solo se acercan al precio (formula clasica)
-        fs[t] = np.where((S[t] < fs[t - 1]) | (a[t - 1] > fs[t - 1]), S[t], fs[t - 1])
-        fi[t] = np.where((I[t] > fi[t - 1]) | (a[t - 1] < fi[t - 1]), I[t], fi[t - 1])
+        fs[t] = np.where(np.isnan(fs[t - 1]) | (S[t] < fs[t - 1]) | (a[t - 1] > fs[t - 1]), S[t], fs[t - 1])
+        fi[t] = np.where(np.isnan(fi[t - 1]) | (I[t] > fi[t - 1]) | (a[t - 1] < fi[t - 1]), I[t], fi[t - 1])
         d = dirn[t - 1]
         d = np.where(a[t] > fs[t - 1], 1.0, np.where(a[t] < fi[t - 1], -1.0, d))
         dirn[t] = np.where(np.isnan(fs[t]) | np.isnan(fi[t]), 0.0, d)

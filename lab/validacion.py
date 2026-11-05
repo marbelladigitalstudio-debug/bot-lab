@@ -90,3 +90,48 @@ def pbo(matriz, bloques=10):
         malas += rango < 0.5
         total += 1
     return malas / total, total
+
+
+# ---------------------------------------------------------------- bootstrap y SPA (anadido 2026-11-05)
+def indices_bootstrap_estacionario(T, bloque_medio, B, rng):
+    """Politis y Romano (1994): bloques de longitud geometrica con media bloque_medio. Devuelve B x T indices."""
+    p = 1.0 / max(bloque_medio, 1)
+    idx = np.empty((B, T), dtype=np.int64)
+    idx[:, 0] = rng.integers(T, size=B)
+    nuevo = rng.random((B, T)) < p
+    salto = rng.integers(T, size=(B, T))
+    for t in range(1, T):
+        idx[:, t] = np.where(nuevo[:, t], salto[:, t], (idx[:, t - 1] + 1) % T)
+    return idx
+
+
+def spa_hansen(M, bloque_medio=24, B=1000, semilla=0):
+    """White Reality Check (2000) y SPA de Hansen (2005) contra el referente 'no operar' (rentabilidad 0).
+    M: barras x estrategias (rentabilidad neta por barra). H0: ninguna supera al referente.
+    Devuelve dict con p_rc (White), p_spa (Hansen, version consistente) y la mejor columna.
+    Corrige el sesgo de busqueda: la significancia se mide contra el maximo de TODAS las probadas."""
+    M = np.asarray(M, dtype=float)
+    M = M[:, M.std(axis=0) > 0]
+    T, K = M.shape
+    if K == 0 or T < 50:
+        return {"p_rc": float("nan"), "p_spa": float("nan"), "k": K}
+    rng = np.random.default_rng(semilla)
+    d = M.mean(axis=0)
+    idx = indices_bootstrap_estacionario(T, bloque_medio, B, rng)
+    medias = np.empty((B, K))
+    for b in range(B):
+        medias[b] = M[idx[b]].mean(axis=0)
+    omega = np.sqrt(T) * medias.std(axis=0)              # desviacion de sqrt(T)*media
+    omega = np.where(omega > 0, omega, 1e-12)
+    rt = np.sqrt(T)
+    # White: estadistico sin estandarizar, centrado en d
+    v_rc = rt * d.max()
+    v_rc_b = (rt * (medias - d)).max(axis=1)
+    p_rc = float((v_rc_b >= v_rc).mean())
+    # Hansen SPA consistente: estandarizado, y se recentran solo las que no son claramente malas
+    t_spa = max(0.0, (rt * d / omega).max())
+    umbral = -np.sqrt(2 * np.log(np.log(T))) * omega / rt
+    mu_c = np.where(d >= umbral, d, 0.0)
+    t_b = np.maximum(0.0, (rt * (medias - mu_c) / omega).max(axis=1))
+    p_spa = float((t_b >= t_spa).mean())
+    return {"p_rc": p_rc, "p_spa": p_spa, "k": K, "mejor": int(np.argmax(d / omega))}
