@@ -36,8 +36,8 @@ laboratorio ya los prueba.
 | Pasan los filtros | **0** de 18 familias | **0** |
 | Sharpe máximo que saldría por azar | ~4,4 | ~4,7 |
 | Mejor DSR | 0,84 (conjunto); hace falta 0,95 | 0,88 |
-| SPA Hansen, búsqueda (todas) | p = 0,71 | ver `lab/spa_1h.txt` |
-| SPA Hansen, reserva (mejor de cada familia) | p = 0,44 | ver `lab/spa_1h.txt` |
+| SPA Hansen, búsqueda (todas) | p = 0,71 | p = 0,42 |
+| SPA Hansen, reserva (mejor de cada familia) | p = 0,44 | p = 0,81 |
 | Meta-validación (rho entre bloques) | −0,12 | (archivo anterior: ≈0) |
 
 - `cambio_regimen` tuvo buen Sharpe en la búsqueda (3,95) y en la reserva perdió (−73 % anualizado): es el caso típico
