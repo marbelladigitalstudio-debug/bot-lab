@@ -13,3 +13,8 @@ Lee CLAUDE.md. Trabaja sin preguntar y haz commit al terminar cada punto.
    bootstrap por bloques, test de White Reality Check / SPA de Hansen). Documenta el motivo.
 5. INFORME: `INFORME.md` en español claro: qué repos sirven, qué familias se añadieron, qué pasa los filtros y qué no, y qué
    haría falta (datos, capital, tiempo) para tener una ventaja real. Sin promesas: si nada pasa, dilo.
+6. OBJETIVO: lee OBJETIVO.md y haz lo que pide, usando las estrategias que mejor resistan los filtros. Añade a INFORME.md una
+   tabla por capital (1.000 / 2.000 / 5.000 / 10.000 €) con probabilidad de llegar al objetivo en 5 meses y de perder ≥50 %.
+
+Recursos que puedes usar si la red lo permite: datos públicos (data.binance.vision, API pública de Hyperliquid, CryptoDataDownload),
+papers (SSRN, arXiv q-fin) y repos de GitHub. Si un sitio está bloqueado, sigue con la caché y dilo en el informe.
