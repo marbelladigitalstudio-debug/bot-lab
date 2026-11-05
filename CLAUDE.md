@@ -13,7 +13,9 @@ Miguel del Valle prueba estrategias de cripto (Hyperliquid) en simulación. NUNC
 - Para añadir estrategias sin tocar el núcleo: `lab/extra_<nombre>.py` con `FAMILIAS = {...}` (ver LEEME_LAB.md).
 
 ## Resultado actual (honesto)
-Ninguna de ~6.000 configuraciones pasa los filtros. Elegir la mejor del pasado no predice el mes siguiente (rho ≈ 0).
+Ninguna configuración pasa los filtros, ni con 180 días ni con 4,8 años reales (OKX y Binance, ene-2022 → nov-2026;
+`resultados/`, generados por `.github/workflows/laboratorio.yml`). El carry de funding se ha apagado (+0,6 a +1,3 % anual en 2025-26).
+Única candidata a vigilar: `squeeze_ruptura` 4h (n=50, pct=0.1, grandes): +21-23 % en la reserva, pero DSR 0,2.
 El objetivo NO es encontrar algo que "parezca" ganar, sino algo que sobreviva a los filtros y al seguimiento hacia delante.
 
 ## Reglas

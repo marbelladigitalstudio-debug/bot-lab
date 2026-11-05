@@ -115,3 +115,74 @@ que se repite la racha de sept-oct, lo cual es optimista. Formato: **P(llegar a 
   anual en monedas grandes; las monedas pequeñas parecen dar más, pero probablemente no tienen contado donde cubrirse.
   No incluye el riesgo de base ni el coste del margen. Es la primera línea que merece validarse con años de datos.
 - Cómo lo afrontaría: ver `PLAN_RENTABILIDAD.md`.
+
+---
+
+# Veredicto con DATOS REALES (5-nov-2026, ejecución automática en GitHub Actions)
+
+Hasta ahora todo se basaba en 180 días. Ahora hay tres fuentes reales, descargadas por GitHub Actions (`resultados/`):
+
+| Fuente | Velas 4h | Velas 1h | Funding |
+|---|---|---|---|
+| Hyperliquid (30 monedas) | jul-2024 → nov-2026 (2,3 años) | abr → nov 2026 | sí |
+| OKX (20 monedas grandes) | ene-2022 → nov-2026 (4,8 años) | ídem | solo ~3 meses (la API no da más) |
+| Binance, archivo público (20 monedas) | ene-2022 → oct-2026 (4,8 años) | ídem | sí, completo |
+
+Binance (API) y Bybit bloquean a los ordenadores de GitHub, que están en EE. UU.
+
+## 1. Estrategias: **ninguna pasa los filtros, con ninguna de las tres fuentes**
+| Fuente | Pruebas | Mejor DSR (hace falta 0,95) | SPA búsqueda | SPA reserva |
+|---|---|---|---|---|
+| Hyperliquid 4h | 3.053 | ~0,3 | p = 0,71 | p = 0,22 |
+| OKX 4h | 3.053 | 0,43 | p = 0,27 | p = 0,33 |
+| Binance 4h | 3.048 | 0,68 | p = 0,48 | p = 0,50 |
+| OKX / Binance 1h | ~1.580 | — | p = 0,34 / **0,038** | p = 0,80 / 0,75 |
+
+En Binance 1h, lo mejor de la búsqueda sí es "significativo" (p = 0,038), pero en la reserva se desvanece (p = 0,75).
+Es exactamente el patrón del sobreajuste: el filtro de la reserva es el que nos protege.
+
+Con 4,8 años, los Sharpe de la búsqueda bajan de 3–6 (180 días) a **1,2–2**: buena parte de lo que parecía ventaja
+con pocos datos era ruido.
+
+## 2. La única candidata a vigilar: `squeeze_ruptura` (4h)
+La **misma configuración** (`n=50, pct=0.1, monedas grandes, solo largos, filtro BTC`) sale elegida por separado en OKX y
+en Binance, y en la reserva (may-2025 → nov-2026) da:
+
+| | Sharpe reserva | Anual reserva | Con costes x2 | PBO | Correlación con el mercado |
+|---|---|---|---|---|---|
+| OKX | 1,39 | +23 % | +22 % | 0,22 | 0,35 |
+| Binance | 1,35 | +21 % | +20 % | 0,26 | 0,36 |
+
+**No pasa**: DSR de 0,16–0,20, muy lejos de 0,95. Además, OKX y Binance tienen casi los mismos precios, así que no son dos
+confirmaciones independientes. En Hyperliquid, con otra configuración elegida, dio solo +4 %. Es una idea para
+**seguir hacia delante**, no para meter dinero.
+
+## 3. Carry de funding con 4,8 años (Binance): **se ha ido apagando**
+El funding medio sigue siendo positivo en las grandes (BTC +6,6 %, ETH +5,9 %, LINK +8 % anual), pero la estrategia
+delta-neutral da **+2,4 % anual en la búsqueda (2022-25) y solo +0,6 % a +1,3 % en la reserva (2025-26)**. Rinde menos que un
+depósito y tiene más riesgo. Con 180 días de Hyperliquid parecía +4 %: también era en parte suerte del periodo.
+
+## 4. Objetivo: +2.000 € en 5 meses con 1.000 o 2.000 € (Monte Carlo con la reserva de 18 meses de OKX/Binance)
+Formato: **P(llegar a +2.000 €) / P(perder ≥ 50 %)**.
+
+| Escenario (Binance 4h) | Apal. | 1.000 € | 2.000 € |
+|---|---|---|---|
+| Cartera de las mejores familias | x1 | 0 % / 0 % | 0 % / 0 % |
+| Cartera de las mejores familias | x3 | 0 % / 5 % | 3 % / 5 % |
+| Cartera de las mejores familias | x5 | 3 % / 25 % | 9 % / 25 % |
+| Cartera de las mejores familias | x10 | 9 % / 66 % | 15 % / 66 % |
+| La mejor de la búsqueda | x5 | 7 % / 50 % | 14 % / 50 % |
+| Comprar y mantener cripto | x1 | 0 % / 15 % | 1 % / 15 % |
+| Comprar y mantener cripto | x3 | 4 % / 79 % | 8 % / 79 % |
+
+(OKX da cifras casi iguales; las tablas completas, incluidas las de 5.000 y 10.000 €, están en `resultados/*/objetivo_mc_4h.md`.)
+
+Incluso suponiendo que `squeeze_ruptura` fuera real (Sharpe ~1,4 y +22 % anual), con 2.000 € y sin apalancamiento lo
+esperable serían **unos +180 € en 5 meses**, no +2.000 €.
+
+## Veredicto final, sin rodeos
+- **Con años de datos reales, el bot no tiene ninguna ventaja demostrada.** Es un "no" claro y rápido, como pedía Miguel.
+- **El objetivo de +2.000 € en 5 meses con 1.000–2.000 € no es alcanzable con riesgo razonable**: cualquier camino con
+  más de un 10 % de probabilidad de lograrlo tiene un 25–66 % de probabilidad de perder la mitad.
+- Lo único que merece seguirse es `squeeze_ruptura` en 4h, **en simulación**, con el seguimiento hacia delante.
+- No se ha operado con dinero real ni se han usado claves.

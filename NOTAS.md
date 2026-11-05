@@ -23,3 +23,7 @@ Añadida familia `cambio_regimen` (extra_regimen.py) a petición de Miguel; test
 ccxt Binance/Bybit/OKX desde 2022 si responden), pasa laboratorio 4h/1h, meta-validación, SPA, carry y Monte Carlo y
 sube `resultados/` a la rama. Motivo: la sesión en la nube y Miguel no pueden descargar datos; Actions sí tiene red.
 Se lanza cambiando `.github/ejecutar.txt`. Sin claves ni órdenes.
+
+## 2026-11-05 — primeros resultados con datos reales (ejecución 3 de Actions)
+Hyperliquid (2,3 años en 4h), OKX y archivo público de Binance (4,8 años). Nada pasa los filtros; SPA de la reserva p ≥ 0,22.
+OKX no sirve para el carry (la API solo da ~3 meses de funding). Corregida la fecha del commit automático (faltaban comillas).
