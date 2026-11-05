@@ -1,41 +1,45 @@
-LABORATORIO 4h — 05/11/2026 06:48
+LABORATORIO 4h — 05/11/2026 06:56
 Ninguna estrategia supera los filtros. Hoy no hay nada que merezca ni siquiera vigilancia.
-Pruebas acumuladas 3042 (indep. ~144); Sharpe por azar ~4.33; reserva desde 02/09/26; umbral PSR reserva 0.994
+Pruebas acumuladas 4561 (indep. ~153); Sharpe por azar ~4.40; reserva desde 02/09/26; umbral PSR reserva 0.995
 
 familia | sharpe_busq | DSR | estab | PBO | conc | sharpe_res | anual_res | PSR_res | anual_res_x2 | corr | veredicto
-conjunto | 6.21 | 0.85 | nan | 0.42 | 32% | -0.46 | -7.5 % | 0.43 | -19.6 % | +0.24 | DESCARTADA
+conjunto | 6.21 | 0.84 | nan | 0.4 | 32% | -0.46 | -7.5 % | 0.43 | -19.6 % | +0.24 | DESCARTADA
     conjunto|xs_momentum|dias=3|filtro_btc=0|mantener=1|modo=ls|q=0.2|universo=grandes;bollinger_reversion|filtro=400|filtro_btc=1|k=2.0|lados=ambos|n=50|salida=0.5|universo=grandes;doble_ema_tendencia|filtro_btc=0|lados=largo|lenta=50|rapida=9|tendencia=400|universo=todas
-xs_momentum | 4.63 | 0.56 | 0.85 | 0.71 | 41% | -4.85 | -115.9 % | 0.03 | -144.8 % | +0.02 | DESCARTADA
+xs_momentum | 4.63 | 0.55 | 0.85 | 0.72 | 41% | -4.85 | -115.9 % | 0.03 | -144.8 % | +0.02 | DESCARTADA
     xs_momentum|dias=3|filtro_btc=0|mantener=1|modo=ls|q=0.2|universo=grandes
-bollinger_reversion | 4.10 | 0.45 | 0.32 | 0.85 | 39% | 4.25 | +56.6 % | 0.94 | +53.2 % | -0.09 | DESCARTADA
+bollinger_reversion | 4.10 | 0.43 | 0.32 | 0.86 | 39% | 4.25 | +56.6 % | 0.94 | +53.2 % | -0.09 | DESCARTADA
     bollinger_reversion|filtro=400|filtro_btc=1|k=2.0|lados=ambos|n=50|salida=0.5|universo=grandes
-doble_ema_tendencia | 3.78 | 0.37 | 0.78 | 0.79 | 18% | 0.99 | +35.9 % | 0.65 | +31.4 % | +0.52 | DESCARTADA
+cambio_regimen | 3.95 | 0.40 | 0.86 | 0.94 | 7% | -1.67 | -73.1 % | 0.26 | -119.7 % | +0.21 | DESCARTADA
+    cambio_regimen|bajo=30|ema=100|filtro_btc=0|global=1|lados=ambos|n=50|rsi=3|umbral=0.4|universo=todas
+doble_ema_tendencia | 3.78 | 0.36 | 0.78 | 0.81 | 18% | 0.99 | +35.9 % | 0.65 | +31.4 % | +0.52 | DESCARTADA
     doble_ema_tendencia|filtro_btc=0|lados=largo|lenta=50|rapida=9|tendencia=400|universo=todas
-squeeze_ruptura | 3.71 | 0.35 | 0.91 | 0.9 | 11% | -5.03 | -30.8 % | 0.02 | -32.4 % | +0.41 | DESCARTADA
+squeeze_ruptura | 3.71 | 0.34 | 0.91 | 0.9 | 11% | -5.03 | -30.8 % | 0.02 | -32.4 % | +0.41 | DESCARTADA
     squeeze_ruptura|filtro_btc=1|lados=largo|n=20|pct=0.1|universo=todas
-macd_tendencia | 3.23 | 0.26 | 0.62 | 0.69 | 18% | 0.81 | +24.2 % | 0.62 | +18.4 % | +0.42 | DESCARTADA
+macd_tendencia | 3.23 | 0.25 | 0.62 | 0.69 | 18% | 0.81 | +24.2 % | 0.62 | +18.4 % | +0.42 | DESCARTADA
     macd_tendencia|filtro_btc=1|lados=largo|macd=(24, 52, 18)|tendencia=400|universo=todas
-xs_reversion | 3.09 | 0.25 | 0.75 | 0.5 | 17% | 0.69 | +62.2 % | 0.60 | +34.3 % | +0.45 | DESCARTADA
+xs_reversion | 3.09 | 0.24 | 0.75 | 0.51 | 17% | 0.69 | +62.2 % | 0.60 | +34.3 % | +0.45 | DESCARTADA
     xs_reversion|dias=3|filtro_btc=1|mantener=1|modo=largo|q=0.2|universo=todas
-keltner_ruptura | 3.03 | 0.22 | 0.97 | 0.92 | 7% | 2.54 | +45.3 % | 0.83 | +42.8 % | +0.40 | DESCARTADA
+keltner_ruptura | 3.03 | 0.21 | 0.97 | 0.92 | 7% | 2.54 | +45.3 % | 0.83 | +42.8 % | +0.40 | DESCARTADA
     keltner_ruptura|filtro_btc=1|k=3.0|lados=largo|n=20|universo=todas
-donchian | 3.02 | 0.23 | 0.87 | 0.87 | 14% | -3.22 | -73.3 % | 0.09 | -78.5 % | -0.09 | DESCARTADA
+donchian | 3.02 | 0.22 | 0.87 | 0.87 | 14% | -3.22 | -73.3 % | 0.09 | -78.5 % | -0.09 | DESCARTADA
     donchian|filtro_btc=0|lados=ambos|m=10|n=100|universo=grandes
-ichimoku_cierre | 3.01 | 0.23 | 0.76 | 0.83 | 22% | -0.65 | -29.6 % | 0.40 | -43.2 % | -0.12 | DESCARTADA
+ichimoku_cierre | 3.01 | 0.22 | 0.76 | 0.85 | 22% | -0.65 | -29.6 % | 0.40 | -43.2 % | -0.12 | DESCARTADA
     ichimoku_cierre|filtro_btc=0|k=52|lados=ambos|s=52|t=9|universo=grandes
-ts_momentum | 2.96 | 0.23 | 0.31 | 0.82 | 20% | -0.42 | -19.3 % | 0.44 | -29.2 % | -0.09 | DESCARTADA
+supertrend | 2.99 | 0.22 | 0.96 | 0.81 | 19% | 1.45 | +59.9 % | 0.71 | +57.8 % | +0.48 | DESCARTADA
+    supertrend|filtro_btc=1|k=6.0|lados=largo|n=30|universo=todas
+ts_momentum | 2.96 | 0.21 | 0.31 | 0.84 | 20% | -0.42 | -19.3 % | 0.44 | -29.2 % | -0.09 | DESCARTADA
     ts_momentum|dias=7|filtro_btc=0|lados=ambos|mantener=1|universo=grandes|vol=0
-kama_tendencia | 2.92 | 0.22 | 0.94 | 0.66 | 19% | 1.46 | +65.3 % | 0.71 | +56.1 % | +0.48 | DESCARTADA
+kama_tendencia | 2.92 | 0.21 | 0.94 | 0.65 | 19% | 1.46 | +65.3 % | 0.71 | +56.1 % | +0.48 | DESCARTADA
     kama_tendencia|er_min=0.35|filtro_btc=1|lados=largo|lenta=30|n=20|rapida=5|universo=todas
-ema_precio_umbral | 2.82 | 0.20 | 0.95 | 0.75 | 18% | 1.47 | +63.3 % | 0.71 | +54.2 % | +0.49 | DESCARTADA
+ema_precio_umbral | 2.82 | 0.19 | 0.95 | 0.75 | 18% | 1.47 | +63.3 % | 0.71 | +54.2 % | +0.49 | DESCARTADA
     ema_precio_umbral|filtro_btc=1|lados=largo|n=50|u=0.01|universo=todas
-rsi_reversion | 2.69 | 0.16 | 0.65 | 0.88 | 12% | 1.87 | +41.7 % | 0.77 | +35.7 % | -0.02 | DESCARTADA
+rsi_reversion | 2.69 | 0.15 | 0.65 | 0.92 | 12% | 1.87 | +41.7 % | 0.77 | +35.7 % | -0.02 | DESCARTADA
     rsi_reversion|bajo=30|filtro=400|filtro_btc=1|lados=ambos|n=7|sale=50|universo=todas
-baja_volatilidad | 2.47 | 0.15 | 0.9 | 0.96 | 11% | 1.43 | +74.9 % | 0.71 | +70.4 % | +0.47 | DESCARTADA
+baja_volatilidad | 2.47 | 0.14 | 0.9 | 0.96 | 11% | 1.43 | +74.9 % | 0.71 | +70.4 % | +0.47 | DESCARTADA
     baja_volatilidad|dias=14|filtro_btc=1|mantener=1|modo=largo|q=0.33|universo=todas
-rsi_tendencia | 1.97 | 0.13 | 0.76 | 0.73 | 29% | 0.70 | +28.3 % | 0.61 | +26.4 % | +0.34 | DESCARTADA
-    rsi_tendencia|entrada=35|filtro_btc=1|n=10|salida=15|tendencia=400|universo=todas
-funding_contrario | 1.96 | 0.10 | 0.91 | 0.96 | 11% | 1.09 | +64.2 % | 0.66 | +57.7 % | +0.47 | DESCARTADA
+rsi_tendencia | 1.97 | 0.12 | 0.76 | 0.68 | 29% | 0.73 | +29.2 % | 0.61 | +27.2 % | +0.34 | DESCARTADA
+    rsi_tendencia|entrada=35|filtro_btc=1|n=10|salida=20|tendencia=400|universo=todas
+funding_contrario | 1.96 | 0.09 | 0.91 | 0.96 | 11% | 1.09 | +64.2 % | 0.66 | +57.7 % | +0.47 | DESCARTADA
     funding_contrario|dias=7|filtro_btc=1|mantener=1|modo=largo|q=0.33|universo=todas
 
 SEGUIMIENTO HACIA DELANTE:
