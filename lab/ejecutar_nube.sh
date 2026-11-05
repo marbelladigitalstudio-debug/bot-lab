@@ -17,17 +17,21 @@ for ex in binanceusdm bybit okx; do
   timeout 60m python -m herramientas.descarga_ccxt --exchange $ex --desde 2022-01-01 > "$RES/descarga_$ex.log" 2>&1 \
     && { echo "$ex: ok" | tee -a "$RES/RESUMEN.txt"; break; } || echo "$ex: FALLO (ver log)" | tee -a "$RES/RESUMEN.txt"
 done
+timeout 90m python -m herramientas.descarga_binance_vision --desde 2022-01 > "$RES/descarga_binancevision.log" 2>&1 \
+  && echo "binancevision: ok" | tee -a "$RES/RESUMEN.txt" || echo "binancevision: FALLO (ver log)" | tee -a "$RES/RESUMEN.txt"
 
-for base in base.pkl.gz base_binanceusdm.pkl.gz base_bybit.pkl.gz base_okx.pkl.gz; do
+for base in base.pkl.gz base_binancevision.pkl.gz base_binanceusdm.pkl.gz base_bybit.pkl.gz base_okx.pkl.gz; do
   [ -s "datos/$base" ] || continue
   nombre="${base%.pkl.gz}"; dest="$RES/$nombre"; mkdir -p "$dest"
   export LAB_BASE=$base
   echo "== $base ==" | tee -a "$RES/RESUMEN.txt"
   rm -f registro_*.csv estado_*.json reserva_*.pkl
   for iv in 4h 1h; do
-    python automejora.py --intervalo $iv --sin-descarga --pruebas "$PRUEBAS" > "$dest/salida_automejora_$iv.txt" 2>&1
-    python meta_validacion.py --intervalo $iv > "$dest/salida_meta_$iv.txt" 2>&1
-    python spa.py --intervalo $iv --max 1500 > "$dest/salida_spa_$iv.txt" 2>&1
+    p=$PRUEBAS; mx=1500; B=1000
+    if [ "$iv" = 1h ]; then p=$((PRUEBAS / 2)); mx=800; B=500; fi   # 1h con anos de datos es ~6x mas pesado
+    timeout 80m python automejora.py --intervalo $iv --sin-descarga --pruebas "$p" > "$dest/salida_automejora_$iv.txt" 2>&1
+    timeout 20m python meta_validacion.py --intervalo $iv > "$dest/salida_meta_$iv.txt" 2>&1
+    timeout 40m python spa.py --intervalo $iv --max $mx --B $B > "$dest/salida_spa_$iv.txt" 2>&1
     python objetivo_mc.py --intervalo $iv > "$dest/salida_mc_$iv.txt" 2>&1
     cp -f informe_$iv.txt spa_$iv.txt meta_validacion_$iv.txt objetivo_mc_$iv.md registro_$iv.csv "$dest/" 2>/dev/null
     head -3 "informe_$iv.txt" >> "$RES/RESUMEN.txt" 2>/dev/null
