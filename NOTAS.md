@@ -17,3 +17,9 @@ Añadida familia `cambio_regimen` (extra_regimen.py) a petición de Miguel; test
 - `lab/extra_hmm.py` (familia hmm_regimen; solo se registra si hmmlearn está instalado). El test de truncado detectó que el arranque dependía de la longitud total: corregido a 60 días fijos.
 - `lab/carry_funding.py`: estimación del carry delta-neutral. Positivo en la reserva (+2 a +4 % anual en grandes). Pendiente validar con años de datos y riesgo de base.
 - `terceros/`: 15 submódulos fijados a commit (enlaces, no copias).
+
+## 2026-11-05 — ejecución automática en GitHub Actions
+`.github/workflows/laboratorio.yml` + `lab/ejecutar_nube.sh`: descarga datos públicos (Hyperliquid ~2,3 años en 4 h;
+ccxt Binance/Bybit/OKX desde 2022 si responden), pasa laboratorio 4h/1h, meta-validación, SPA, carry y Monte Carlo y
+sube `resultados/` a la rama. Motivo: la sesión en la nube y Miguel no pueden descargar datos; Actions sí tiene red.
+Se lanza cambiando `.github/ejecutar.txt`. Sin claves ni órdenes.

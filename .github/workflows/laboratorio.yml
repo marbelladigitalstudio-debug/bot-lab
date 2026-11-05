@@ -1,0 +1,42 @@
+# Laboratorio completo con datos reales en un ordenador de GitHub (solo simulacion, datos publicos, sin claves).
+# Se lanza al cambiar .github/ejecutar.txt (o a mano desde la pestana Actions) y sube resultados/ a la misma rama.
+name: laboratorio
+on:
+  workflow_dispatch:
+    inputs:
+      pruebas:
+        description: "Configuraciones por intervalo"
+        default: "3000"
+  push:
+    paths:
+      - ".github/ejecutar.txt"
+permissions:
+  contents: write
+concurrency:
+  group: laboratorio-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  lab:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Instalar (versiones fijadas)
+        run: python -m pip install --disable-pip-version-check -r requisitos/datos.txt
+      - name: Ejecutar laboratorio
+        env:
+          PRUEBAS: ${{ github.event.inputs.pruebas || '3000' }}
+        run: bash lab/ejecutar_nube.sh
+      - name: Subir resultados a la rama
+        if: always()
+        run: |
+          git config user.name "bot-lab-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add -f resultados
+          git commit -m "Resultados del laboratorio con datos reales ($(date -u +%Y-%m-%d))" || exit 0
+          for i in 1 2 3 4; do git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((2**i)); done
