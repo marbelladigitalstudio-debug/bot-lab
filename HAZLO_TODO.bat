@@ -43,6 +43,7 @@ if errorlevel 1 (
 
 echo.
 echo [3/5] Probando estrategias con los filtros (unos 10-20 minutos)...
+echo   (si algo falla, el diagnostico final lo dira)
 python automejora.py --intervalo 4h --sin-descarga --pruebas 3000 > salida_automejora.txt 2>&1
 python meta_validacion.py --intervalo 4h > salida_meta.txt 2>&1
 
@@ -53,27 +54,8 @@ python carry_funding.py --grandes > carry.txt 2>&1
 python objetivo_mc.py --intervalo 4h > salida_mc.txt 2>&1
 
 echo.
-echo [5/5] Juntando resultados...
-(
-  echo ===== DATOS: %LAB_BASE% =====
-  echo ===== INFORME 4h =====
-  type informe_4h.txt
-  echo.
-  echo ===== SPA =====
-  type spa_4h.txt
-  echo.
-  echo ===== CARRY DE FUNDING =====
-  type carry.txt
-  echo.
-  echo ===== META-VALIDACION =====
-  type meta_validacion_4h.txt
-  echo.
-  echo ===== MONTE CARLO OBJETIVO =====
-  type objetivo_mc_4h.md
-  echo.
-  echo ===== ERRORES (si los hay) =====
-  findstr /i "Traceback Error" salida_automejora.txt salida_meta.txt salida_spa.txt carry.txt salida_mc.txt
-) > ..\PEGAR_A_CLAUDE.txt 2>&1
+echo [5/5] Juntando resultados y diagnostico...
+python juntar_resultados.py
 
 cd ..
 echo.
