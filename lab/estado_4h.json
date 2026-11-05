@@ -1,0 +1,15 @@
+{
+ "firma": "4h|1777449600000|True",
+ "corte": 1788321600000,
+ "creado": "2026-11-05",
+ "ejecuciones": [
+  {
+   "fecha": "2026-11-05 06:48",
+   "pruebas": 3042,
+   "promovidas": 0,
+   "vigilar": 0,
+   "segundos": 71
+  }
+ ],
+ "seguimiento": {}
+}
