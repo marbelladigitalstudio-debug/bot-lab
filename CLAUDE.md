@@ -8,6 +8,8 @@ Miguel del Valle prueba estrategias de cripto (Hyperliquid) en simulación. NUNC
   costes x2) y hace seguimiento hacia delante. `meta_validacion.py` mide si "la mejor del pasado" predice el siguiente bloque.
 - `cache_funding.pkl.gz`: 180 días (abr-oct 2026) de velas de 1 h (solo apertura y máximo) y funding de 40 monedas de Hyperliquid.
   `datos.cargar()` la usa si no hay datos propios. En la nube seguramente no hay acceso a la API de Hyperliquid: usa esta caché.
+- `lab/herramientas/` (datos ccxt/yfinance, noticias, régimen HMM, SPA de arch, avisos) y `requisitos/` con versiones fijadas;
+  `terceros/` son submódulos de referencia (no `--recursive`). Mapa completo: `referencias/HERRAMIENTAS.md`. Plan: `PLAN_RENTABILIDAD.md`.
 - Para añadir estrategias sin tocar el núcleo: `lab/extra_<nombre>.py` con `FAMILIAS = {...}` (ver LEEME_LAB.md).
 
 ## Resultado actual (honesto)

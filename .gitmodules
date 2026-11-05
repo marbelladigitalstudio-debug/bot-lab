@@ -1,0 +1,60 @@
+[submodule "terceros/freqtrade"]
+	path = terceros/freqtrade
+	url = https://github.com/freqtrade/freqtrade.git
+	shallow = true
+[submodule "terceros/freqtrade-strategies"]
+	path = terceros/freqtrade-strategies
+	url = https://github.com/freqtrade/freqtrade-strategies.git
+	shallow = true
+[submodule "terceros/hummingbot"]
+	path = terceros/hummingbot
+	url = https://github.com/hummingbot/hummingbot.git
+	shallow = true
+[submodule "terceros/nautilus_trader"]
+	path = terceros/nautilus_trader
+	url = https://github.com/nautechsystems/nautilus_trader.git
+	shallow = true
+[submodule "terceros/jesse"]
+	path = terceros/jesse
+	url = https://github.com/jesse-ai/jesse.git
+	shallow = true
+[submodule "terceros/lean"]
+	path = terceros/lean
+	url = https://github.com/QuantConnect/Lean.git
+	shallow = true
+[submodule "terceros/hyperliquid-python-sdk"]
+	path = terceros/hyperliquid-python-sdk
+	url = https://github.com/hyperliquid-dex/hyperliquid-python-sdk.git
+	shallow = true
+[submodule "terceros/ccxt"]
+	path = terceros/ccxt
+	url = https://github.com/ccxt/ccxt.git
+	shallow = true
+[submodule "terceros/qlib"]
+	path = terceros/qlib
+	url = https://github.com/microsoft/qlib.git
+	shallow = true
+[submodule "terceros/fingpt"]
+	path = terceros/fingpt
+	url = https://github.com/AI4Finance-Foundation/FinGPT.git
+	shallow = true
+[submodule "terceros/ai-hedge-fund"]
+	path = terceros/ai-hedge-fund
+	url = https://github.com/virattt/ai-hedge-fund.git
+	shallow = true
+[submodule "terceros/tradingagents"]
+	path = terceros/tradingagents
+	url = https://github.com/TauricResearch/TradingAgents.git
+	shallow = true
+[submodule "terceros/kronos"]
+	path = terceros/kronos
+	url = https://github.com/shiyu-coder/Kronos.git
+	shallow = true
+[submodule "terceros/arch"]
+	path = terceros/arch
+	url = https://github.com/bashtage/arch.git
+	shallow = true
+[submodule "terceros/skfolio"]
+	path = terceros/skfolio
+	url = https://github.com/skfolio/skfolio.git
+	shallow = true

@@ -1,0 +1,22 @@
+AVISO: sin datos propios del laboratorio; uso cache_funding.pkl.gz (aproximada, 180 dias).
+Funding medio anualizado por moneda (todo el periodo, top 10):
+CASHCAT     +43.1%
+XMR         +32.0%
+GRASS       +19.4%
+ZRO         +18.3%
+FARTCOIN    +16.3%
+VVV         +14.4%
+NEAR        +13.4%
+TAO         +12.7%
+SPX         +12.2%
+XPL         +11.7%
+
+Top 5 configuraciones por rentabilidad en la BUSQUEDA (y lo que dieron en la reserva):
+ dias  umbral_h  mantener  anual_busq  anual_res  sharpe_res   expo
+   14     3e-05         1      0.1875    0.05686       13.46 0.7889
+    7     3e-05         7      0.1743    0.03178       4.596 0.7778
+   14     3e-05         7      0.1709    0.06972       15.81 0.8167
+   14     3e-05        14      0.1669    0.07965       19.04 0.8556
+    7     3e-05         1      0.1616   -0.01075      -1.358 0.7889
+
+Elegida en la busqueda -> reserva: +5.7% anual sobre el capital total, Sharpe 13.5. Mediana de las 27 en la reserva: +6.1%

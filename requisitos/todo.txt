@@ -1,0 +1,4 @@
+-r datos.txt
+-r noticias.txt
+-r analisis.txt
+-r avisos.txt

@@ -1,0 +1,13 @@
+# Estadística, régimen, ML y validación
+-r base.txt
+scipy==1.18.1            # BSD-3
+statsmodels==0.15.0      # BSD-3. Series temporales, cointegración (pares)
+arch==8.0.0              # NCSA. GARCH, bootstrap y SPA de Hansen de referencia
+hmmlearn==0.3.3          # BSD. Regímenes ocultos (extra_hmm.py)
+ruptures==1.1.10         # BSD-2. Cambios estructurales (solo diagnóstico)
+scikit-learn==1.9.1      # BSD-3. ML clásico y validación temporal
+lightgbm==4.7.0          # MIT. Árboles potenciados (modelos de señal)
+optuna==5.0.0            # MIT. Búsqueda de parámetros (¡más búsqueda = más DSR exigido!)
+skfolio==1.12.5          # BSD-3. Carteras y CombinatorialPurgedCV (López de Prado)
+ta==0.11.0               # MIT. ~40 indicadores técnicos en pandas
+quantstats==0.0.86       # Apache-2.0. Informes HTML de rendimiento

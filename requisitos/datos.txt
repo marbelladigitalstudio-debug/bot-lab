@@ -1,0 +1,7 @@
+# Datos de mercado (solo endpoints PÚBLICOS; nunca se guardan claves)
+-r base.txt
+ccxt==4.5.92                    # MIT. Historia larga de ~100 exchanges (Binance, Bybit, OKX...)
+hyperliquid-python-sdk==0.24.0  # MIT. SDK oficial; usar SOLO la parte Info (lectura). Nunca Exchange/claves
+yfinance==1.7.0                 # Apache-2.0. S&P 500 / ETFs. (1.8.0 choca con ccxt por cffi)
+pandas-datareader==0.11.1       # BSD-3. FRED (tipos, macro) y otras fuentes públicas
+pyarrow==26.0.1                 # Apache-2.0. Guardar bases grandes en parquet

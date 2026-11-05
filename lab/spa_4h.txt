@@ -1,6 +1,6 @@
 SPA / REALITY CHECK 4h: 3000 configuraciones, 642 barras de busqueda
-  Busqueda (todas): p White = 0.291 | p SPA Hansen = 0.711
-  Reserva (mejor de cada familia, 18): p White = 0.571 | p SPA = 0.435
+  Busqueda (todas): p White = 0.295 | p SPA Hansen = 0.695
+  Reserva (mejor de cada familia, 19): p White = 0.580 | p SPA = 0.441
   p < 0.05 significaria que al menos una supera a 'no operar' tras corregir por la busqueda.
 
 familia | sharpe_res_anual | anual_res
@@ -11,14 +11,15 @@ familia | sharpe_res_anual | anual_res
   doble_ema_tendencia    +0.99 | +35.9%
   squeeze_ruptura        -5.03 | -30.8%
   xs_reversion           +0.57 | +52.9%
-  supertrend             +0.44 | +15.9%
   macd_tendencia         +0.81 | +24.2%
+  supertrend             +0.23 | +8.6%
   keltner_ruptura        +2.54 | +45.3%
-  donchian               -3.22 | -73.3%
   ichimoku_cierre        -0.65 | -29.6%
-  kama_tendencia         +0.57 | +21.4%
-  rsi_tendencia          -0.83 | -4.3%
+  donchian               -1.33 | -18.6%
+  kama_tendencia         +1.46 | +65.3%
+  rsi_tendencia          -1.04 | -5.4%
   ema_precio_umbral      +1.47 | +63.3%
   ts_momentum            +0.42 | +20.1%
   baja_volatilidad       +0.45 | +17.7%
   funding_contrario      +1.67 | +110.2%
+  hmm_regimen            -0.64 | -21.1%

@@ -105,3 +105,13 @@ que se repite la racha de sept-oct, lo cual es optimista. Formato: **P(llegar a 
 - **Objetivo realista** si algún día hay una estrategia validada con Sharpe ~1 y volatilidad del 20 %, sin apalancamiento:
   ~+8 % en 5 meses de media (≈ 800 € con 10.000 €), con una caída máxima típica del 10–15 %. Hoy ni eso está demostrado.
 - No se ha operado nada real ni se han usado claves.
+
+## Anexo (5-nov, 2ª parte): herramientas, HMM y carry
+- Añadida la caja de herramientas (`referencias/HERRAMIENTAS.md`): datos de cripto y del S&P 500, noticias y
+  sentimiento, régimen HMM, SPA de referencia, avisos. 15 repos de referencia en `terceros/` como submódulos.
+- Familia `hmm_regimen` (HMM sobre BTC que decide cuándo seguir la tendencia): Sharpe 1,66 en la búsqueda,
+  **−21 % anualizado en la reserva**. Descartada. SPA en 4h con 19 familias: p = 0,44.
+- **Carry de funding delta-neutral** (`lab/carry_funding.py`): lo único positivo y estable en la reserva. Da +2 a +4 %
+  anual en monedas grandes; las monedas pequeñas parecen dar más, pero probablemente no tienen contado donde cubrirse.
+  No incluye el riesgo de base ni el coste del margen. Es la primera línea que merece validarse con años de datos.
+- Cómo lo afrontaría: ver `PLAN_RENTABILIDAD.md`.

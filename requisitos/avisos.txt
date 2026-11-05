@@ -1,0 +1,1 @@
+apprise==2.1.0           # BSD-2. Telegram, correo, Discord... (la URL va en la variable BOT_AVISOS, nunca en el repo)

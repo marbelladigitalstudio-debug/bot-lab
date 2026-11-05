@@ -185,8 +185,12 @@ def remuestrear(panel, iv):
 
 
 def cargar(iv):
-    """Panel listo para el motor. Usa la base descargada; si no existe, la cache antigua."""
-    base = _leer("base.pkl.gz", None)
+    """Panel listo para el motor. Usa la base descargada; si no existe, la cache antigua.
+    LAB_BASE=base_binanceusdm.pkl.gz (por ejemplo) usa la historia larga bajada con herramientas/descarga_ccxt.py."""
+    nombre = os.environ.get("LAB_BASE", "base.pkl.gz")
+    base = _leer(nombre, None)
+    if base and nombre != "base.pkl.gz":
+        print(f"Datos: {nombre}")
     if base and base["velas"].get(iv):
         return _panel_desde_base(base, iv)
     antigua = os.path.join(os.path.dirname(C.CARPETA), "cache_funding.pkl.gz")

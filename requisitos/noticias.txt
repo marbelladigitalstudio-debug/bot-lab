@@ -1,0 +1,6 @@
+# Noticias y sentimiento
+-r base.txt
+feedparser==6.0.14       # BSD-2. RSS
+gdeltdoc==1.12.0         # MIT. GDELT DOC 2.0 (noticias mundiales, gratis)
+vaderSentiment==3.3.2    # MIT. Sentimiento rápido (flojo con lenguaje financiero: ver HERRAMIENTAS.md)
+# Más calidad (pesado, ~2 GB): transformers==5.22.1 (Apache-2.0) + modelo ProsusAI/finbert
